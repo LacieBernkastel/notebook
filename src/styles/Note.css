@@ -1,0 +1,11 @@
+.addNote{
+    margin: 0 3%;
+}
+
+.addButton{
+    cursor: pointer;
+    margin-right: 2vw;
+    padding: 1vh 1vw;
+    border: rgb(80, 80, 80, 0.6) solid 1px;
+    border-radius: 5px;
+}
