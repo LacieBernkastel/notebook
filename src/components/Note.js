@@ -3,18 +3,25 @@ import { useState } from 'react'
 
 function Note({ handleAddNote }){
 
+
+    // Initialization 
     const[noteContent, setNoteContent] = useState('')
     const[bgColor, setBgColor] = useState('')
 
+
+    // Setting the note content whenever the content of the text area changes
     const handleChange = (event) => {
-        console.log(event.target.value)
         setNoteContent(event.target.value)
     }
 
+    // Setting the color background whenever the selected color changed
     const handleColorChange = (event) => {
         setBgColor(event.target.value)
     }
 
+
+    // Whenever the add button is clicked, check if the content is empty. If not, pass the note content and background color to the App component.
+    // Reinitializing the text area field.
     const handleAddClick = () => {
         if(noteContent.trim().length > 0){
             handleAddNote({noteContent, bgColor})

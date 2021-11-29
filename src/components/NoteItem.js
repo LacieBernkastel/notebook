@@ -3,23 +3,29 @@ import '../styles/NoteItem.css'
 
 function NoteItem({ position, id, content, bgColor, handleDeleteNote, handleEditedNote }){
 
+
+    // Initilization 
     const [onEdit, setOnEdit] = useState(false)
     const[noteContent, setNoteContent] = useState('')
 
+    // Setting the note content whenever the content of the text area changes
     const handleChange = (event) => {
-        console.log(event.target.value)
         setNoteContent(event.target.value)
     }
 
+    // Whenever the add button is clicked, check if the content is empty. If not, pass the note content and background color to the App component.
+    // Reinitializing the text area field.
+    // Putting the edit button back
     const handleSaveClick = () => {
         if(noteContent.trim().length > 0){
-            console.log(noteContent)
             handleEditedNote({position, noteContent})
             setNoteContent('')
             setOnEdit(false)
         }
     }
 
+
+    // Checking if the note is on edit mode or not. Changing the button to Edit if it is, to Save if it isn't.
     function setButton(){
         return onEdit ? (
             <div>
